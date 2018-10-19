@@ -356,7 +356,8 @@ cRawOut::file_points(int indx)
             fprintf(ro_fp, " %d", indx >= 0 ? indx : i);
             for (sDvList *dl = ro_dlist; dl; dl = dl->dl_next) {
                 sDataVec *v = dl->dl_dvec;
-                if (v && v->realvec()) {
+                // if (v && v->realvec()) {
+		if (v) { // Looks like complex output is already provided for?
                     if (i < v->length()) {
                         if (ro_realflag)
                             fprintf(ro_fp,
